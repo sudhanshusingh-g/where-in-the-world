@@ -1,7 +1,5 @@
 # 🌍 REST Countries API with Color Theme Switcher
 
-![Design preview for the REST Countries API with color theme switcher coding challenge](preview.jpg)
-
 ## 📌 Overview
 
 This is a solution to the [Frontend Mentor](https://www.frontendmentor.io) challenge: **REST Countries API with Color Theme Switcher**. The goal is to build a responsive web app using the [REST Countries API](https://restcountries.com/) that allows users to explore country data with a dark/light mode toggle.
@@ -10,7 +8,7 @@ This is a solution to the [Frontend Mentor](https://www.frontendmentor.io) chall
 
 ## 🚀 Live Demo
 
-👉 [View Live Site](https://your-deployment-url.com)
+👉 [View Live Site](https://sudhanshusingh-g.github.io/where-in-the-world/)
 
 ---
 

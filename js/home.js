@@ -23,7 +23,7 @@ export async function loadHomePage() {
     <section id="country-list-container"></section>
   `;
 
-  const data = await fetch("/data.json").then((res) => res.json());
+  const data = await fetch("./data.json").then((res) => res.json());
 
   const searchInput = document.getElementById("search-input");
   const filterSelect = document.getElementById("filter-select");
