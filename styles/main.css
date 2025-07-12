@@ -1,0 +1,342 @@
+:root {
+  --darkBackground: hsl(207, 26%, 17%);
+  --darkElements: hsl(209, 23%, 22%);
+  --lightModeText: hsl(200, 15%, 8%);
+  --lightModeInput: hsl(0, 0%, 52%);
+  --lightBackground: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--darkBackground);
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+body.light-theme {
+  background-color: var(--lightBackground);
+  color: var(--lightModeText);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  background-color: var(--darkElements);
+}
+
+body.light-theme header {
+  background-color: var(--white);
+}
+
+#theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+main {
+  padding: 2rem 4rem;
+}
+
+.search-filter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+#search {
+  display: flex;
+  align-items: center;
+  background-color: var(--darkElements);
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  width: 30%;
+  gap: 1rem;
+}
+/* Remove autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0px 1000px inherit inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px inherit inset !important;
+  background-color: transparent !important;
+  transition: background-color 5000s ease-in-out 0s;
+  color: inherit !important;
+}
+
+/* Fix for focus or invalid states adding colors */
+#search input:focus,
+#search input:valid,
+#search input:invalid {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* General reset */
+#search input {
+  background: none !important;
+  border: none;
+  outline: none;
+  color: inherit;
+  width: 100%;
+}
+
+#filter {
+  position: relative;
+  width: 200px;
+}
+
+#filter select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--darkElements);
+  color: inherit;
+  appearance: none;
+  cursor: pointer;
+}
+
+#filter i {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: inherit;
+}
+
+/* Light overrides */
+body.light-theme #search,
+body.light-theme #filter select {
+  background-color: var(--white);
+  color: var(--lightModeText);
+}
+
+#country-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.country-card {
+  background-color: var(--darkElements);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+body.light-theme .country-card {
+  background-color: var(--white);
+}
+
+.country-card:hover {
+  transform: translateY(-5px);
+}
+
+.flag-image-container {
+  width: 100%;
+  height: 160px;
+  background-position: center;
+  background-size: cover;
+}
+
+.card-detail {
+  padding: 1rem;
+}
+
+.card-detail h3 {
+  margin-bottom: 1rem;
+}
+
+.card-detail p {
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+.back {
+  padding: 1rem 0;
+}
+.back button {
+  background-color: var(--darkElements);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.country-detail {
+  display: flex;
+  gap: 4rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+.country-image {
+  width: 100%;
+  max-width: 500px;
+}
+
+.country-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 500px;
+}
+.country-info > p:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.country-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.border-country {
+  background: var(--darkElements);
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 1024px) {
+  .country-detail {
+    gap: 4rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .country-image {
+    width: 80%;
+  }
+
+  .country-info {
+    width: 100%;
+    gap: 2rem;
+  }
+
+  .country-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  #theme-toggle-btn {
+    font-size: 0.8rem;
+  }
+  header {
+    padding: 1rem;
+  }
+  header h1 {
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 1.5rem 2rem;
+  }
+
+  .search-filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  #search {
+    width: 100%;
+  }
+
+  #filter {
+    width: 100%;
+  }
+
+  #country-list-container {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .country-detail {
+    margin-top: 2rem;
+  }
+
+  .country-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .country-image {
+    width: 100%;
+  }
+
+  .back button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .card-detail h3 {
+    font-size: 1rem;
+  }
+
+  .card-detail p {
+    font-size: 0.8rem;
+  }
+
+  .country-info-grid {
+    gap: 0.75rem;
+  }
+
+  .border-country {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+#loader {
+  display: none;
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+}
+
+.loader-spinner {
+  border: 6px solid var(--lightModeInput);
+  border-top: 6px solid var(--lightModeText);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
