@@ -3,7 +3,7 @@ export function loadDetailPage() {
   const params = new URLSearchParams(window.location.search);
   const countryName = params.get("name");
 
-  fetch("/data.json")
+  fetch("/where-in-the-world/data.json")
     .then((res) => res.json())
     .then((data) => {
       const country = data.find(
